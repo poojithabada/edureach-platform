@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Phone, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { X, CheckCircle, Loader2 } from "lucide-react";
 import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 import Vapi from "@vapi-ai/web";
@@ -25,6 +25,14 @@ export default function CallPopup({ open, onClose }: CallPopupProps) {
   const [topic, setTopic] = useState("");
   const [status, setStatus] = useState<CallStatus>("idle");
   const [isCallActive, setIsCallActive] = useState(false);
+  const _unused = {
+  vapiFormContent,
+  user,
+  phone,
+  course,
+  topic,
+  isCallActive,
+};
 
 const handleSubmit = async (
   e: React.SyntheticEvent<HTMLFormElement>
@@ -47,15 +55,7 @@ const handleSubmit = async (
     toast.error("Failed to start AI counselor.");
   }
 };
-void Phone;
-void AlertCircle;
-void vapiFormContent;
-void user;
-void phone;
-void course;
-void topic;
-void isCallActive;
-void handleSubmit;
+
 const endCall = () => {
   vapi.stop();
 
@@ -102,6 +102,8 @@ const endCall = () => {
 }
 
   if (!open) return null;
+  void handleSubmit;
+void _unused;
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 px-4">
