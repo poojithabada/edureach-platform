@@ -47,17 +47,15 @@ const handleSubmit = async (
     toast.error("Failed to start AI counselor.");
   }
 };
-console.log(
-  Phone,
-  AlertCircle,
-  vapiFormContent,
-  user,
-  phone,
-  course,
-  topic,
-  isCallActive,
-  handleSubmit
-);
+void Phone;
+void AlertCircle;
+void vapiFormContent;
+void user;
+void phone;
+void course;
+void topic;
+void isCallActive;
+void handleSubmit;
 const endCall = () => {
   vapi.stop();
 
