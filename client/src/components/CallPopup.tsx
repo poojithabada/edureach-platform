@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { X, Phone, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { X, Loader2 } from "lucide-react";
 import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 import Vapi from "@vapi-ai/web";
-import { vapiFormContent } from "../data/content";
 const vapi = new Vapi(
   import.meta.env.VITE_VAPI_PUBLIC_KEY
 );
