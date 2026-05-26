@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { X, Phone, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { X, Loader2 } from "lucide-react";
 import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 import Vapi from "@vapi-ai/web";
-import { vapiFormContent } from "../data/content";
 const vapi = new Vapi(
   import.meta.env.VITE_VAPI_PUBLIC_KEY
 );
@@ -19,34 +18,11 @@ type CallStatus =
   | "connected";
 
 export default function CallPopup({ open, onClose }: CallPopupProps) {
-  const { user } = useAuth();
-  const [phone, setPhone] = useState("");
-  const [course, setCourse] = useState("");
-  const [topic, setTopic] = useState("");
+  
   const [status, setStatus] = useState<CallStatus>("idle");
-  const [isCallActive, setIsCallActive] = useState(false);
+  
 
-const handleSubmit = async (
-  e: React.SyntheticEvent<HTMLFormElement>
-) => {
-  e.preventDefault();
 
-  try {
-    setStatus("calling");
-
-    await vapi.start(
-      import.meta.env.VITE_VAPI_ASSISTANT_ID
-    );
-
-    toast.success("AI Counselor Connected!");
-  } catch (error) {
-    console.error(error);
-
-    setStatus("idle");
-
-    toast.error("Failed to start AI counselor.");
-  }
-};
 const endCall = () => {
   vapi.stop();
 
